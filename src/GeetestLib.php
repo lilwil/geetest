@@ -14,8 +14,11 @@ class GeetestLib {
     private $response;
 
     public function __construct($config) {
+        if (empty($config['captcha_id']) || empty($config['private_key'])) {
+            throw new \Exception('请配置geetest参数');
+        }
         $this->captcha_id  = $config['captcha_id'];
-        $this->private_key = $config['$private_key'];
+        $this->private_key = $config['private_key'];
     }
 
     /**

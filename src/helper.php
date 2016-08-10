@@ -18,9 +18,9 @@
  * @param array  $config
  * @return \think\Response
  */
-function geetest($id = "", $config = [])
+function geetest($id = "", $config)
 {
-    $geetest = new \think\geetest\GeetestLib\GeetestLib($config);
+    $geetest = new \think\geetest\GeetestLib($config);
     \think\Session::set('gt_user_id',$_SERVER['REQUEST_TIME']);
     \think\Session::set('gt_server_status',$geetest->pre_process(\think\Session::get('gt_user_id')));
     return  $geetest->get_response_str();
