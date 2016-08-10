@@ -8,7 +8,7 @@
 // +----------------------------------------------------------------------
 // | Author: lilwil <lilwil@163.com>
 // +----------------------------------------------------------------------
-\think\Route::get('geetest/[:id]', "\\think\\captcha\\CaptchaController@index");
+\think\Route::get('geetest/[:id]', "\\think\\geetest\\GeetestController@index");
 \think\Validate::extend('geetest', function ($value, $id = "") {
     return captcha_check($value, $id, (array) \think\Config::get('geetest'));
 });

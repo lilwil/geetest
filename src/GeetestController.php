@@ -8,7 +8,7 @@
 // +----------------------------------------------------------------------
 // | Author: lilwil <lilwil@163.com>
 // +----------------------------------------------------------------------
-namespace think\captcha;
+namespace think\geetest;
 use think\Config;
 use think\Session;
 use think\geetest\GeetestLib;
