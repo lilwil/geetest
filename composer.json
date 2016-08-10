@@ -11,10 +11,10 @@
     "minimum-stability": "dev",
     "autoload": {
         "psr-4": {
-            "think\\geetest\\": "src"
+            "think\\geetest\\": "src/"
         },
         "files": [
-            "src/config.php"
+            "src/helper.php"
         ]
     }
 }
