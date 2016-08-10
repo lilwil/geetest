@@ -1,0 +1,20 @@
+{
+    "name": "lilwil/geetest",
+    "description": "The ThinkPHP5 Queue Package",
+    "authors": [
+        {
+            "name": "lilwil",
+            "email": "lilwil@163.com"
+        }
+    ],
+    "license": "Apache-2.0",
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-4": {
+            "think\\geetest\\": "src"
+        },
+        "files": [
+            "src/config.php"
+        ]
+    }
+}
