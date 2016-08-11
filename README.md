@@ -58,7 +58,7 @@ $.ajax({
 ### 控制器里验证
 ~~~
 //需要传入$_POST请求的数据
-if(!captcha_check($post)){
+if(!geetest_check($post)){
  //验证失败
 };
 ~~~
