@@ -1,5 +1,6 @@
 <?php
 namespace think\geetest;
+use think\Config;
 /**
  * 极验行为式验证安全平台，php 网站主后台包含的库文件
  *
@@ -76,9 +77,12 @@ class GeetestLib {
      * @return mixed
      */
     public function get_response_str() {
-        return json_encode($this->response);
+        if ('json' === Config::get('default_ajax_return')) {
+            return $this->response;
+        }else {
+            return json_encode($this->response);
+        }
     }
-
     /**
      * 返回数组方便扩展
      *
