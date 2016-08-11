@@ -19,6 +19,11 @@ thinkphp5可用的极验扩展
 ###模板里的调用
 
 ~~~
+<!-- 为使用方便，直接使用jquery.js库 -->
+<script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
+<!-- 引入封装了failback的接口--initGeetest -->
+<script src="http://static.geetest.com/static/tools/gt.js"></script>
+
 <script>
 function doOk(){
 	//TODO:验证成功，对表单的操作
