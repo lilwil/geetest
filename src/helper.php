@@ -1,14 +1,9 @@
 <?php
-// +----------------------------------------------------------------------
-// | ThinkPHP [ WE CAN DO IT JUST THINK ]
-// +----------------------------------------------------------------------
-// | Copyright (c) 2006-2015 http://thinkphp.cn All rights reserved.
-// +----------------------------------------------------------------------
-// | Licensed ( http://www.apache.org/licenses/LICENSE-2.0 )
-// +----------------------------------------------------------------------
-// | Author: lilwil <lilwil@163.com>
-// +----------------------------------------------------------------------
-\think\Route::get('geetest/[:id]', "\\think\\geetest\\GeetestController@index");
+use think\Route;
+use think\Session;
+use think\Config;
+use think\Url;
+\think\Route::rule('geetest/[:id]', "\\think\\geetest\\GeetestController@index");
 
 /**
  *
@@ -16,19 +11,20 @@
  */
 function geetest($config = [])
 {
-    $config = empty($config) ? \think\Config::get('geetest') : $config;
+    $config = empty($config) ? Config::get('geetest') : $config;
     $geetest = new \think\geetest\GeetestLib($config);
-    \think\Session::set('gt_user_id', $_SERVER['REQUEST_TIME']);
-    \think\Session::set('gt_server_status', $geetest->pre_process(\think\Session::get('gt_user_id')));
+    Config::set('gt_user_id', $_SERVER['REQUEST_TIME']);
+    Config::set('gt_server_status', $geetest->pre_process(Config::get('gt_user_id')));
     return $geetest->get_response_str();
 }
 
 /**
+ *
  * @return string
  */
 function geetest_url()
 {
-    return \think\Url::build('/geetest');
+    return Url::build('/geetest');
 }
 
 /**
@@ -43,10 +39,10 @@ function geetest_url()
  */
 function geetest_check($post, $config = [])
 {
-    $config = empty($config) ? \think\Config::get('geetest') : $config;
+    $config = empty($config) ? Config::get('geetest') : $config;
     $geetest = new \think\geetest\GeetestLib($config);
-    if (1 == \think\Session::get('gt_server_status')) {
-        if ($geetest->success_validate($post['geetest_challenge'], $post['geetest_validate'], $post['geetest_seccode'], \think\Session::get('gt_user_id'))) {
+    if (1 == Config::get('gt_server_status')) {
+        if ($geetest->success_validate($post['geetest_challenge'], $post['geetest_validate'], $post['geetest_seccode'], Config::get('gt_user_id'))) {
             return true;
         } else {
             return false;
