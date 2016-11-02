@@ -1,20 +1,16 @@
 {
-    "name": "lilwil/geetest",
-    "description": "Geetest For ThinkPHP5",
-    "authors": [
-        {
-            "name": "lilwil",
-            "email": "lilwil@163.com"
-        }
-    ],
-    "version": "1.0.1",
-    "license": "Apache-2.0",
-    "autoload": {
-        "psr-4": {
-            "think\\geetest\\": "src/"
-        },
-        "files": [
-            "src/helper.php"
-        ]
-    }
+  "name" : "lilwil/geetest",
+  "description" : "Geetest For ThinkPHP5",
+  "version" : "1.0.2",
+  "license" : "Apache-2.0",
+  "autoload" : {
+    "psr-4" : {
+      "think\\geetest\\" : "src/"
+    },
+    "files" : [ "src/helper.php" ]
+  },
+  "authors" : [ {
+    "name" : "lilwil",
+    "email" : "lilwil@163.com"
+  } ]
 }
