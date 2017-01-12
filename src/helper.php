@@ -1,11 +1,13 @@
 <?php
-use think\Route;
+
 use think\Config;
 use think\geetest\GeetestLib;
+use think\Route;
 use think\Session;
 use think\Url;
+
 // 注册路由
-Route::rule('geetest/[:id]', "\\think\\geetest\\GeetestController@index");
+Route::rule('geetest/[:id]', '\\think\\geetest\\GeetestController@index');
 
 function geetest($config = [])
 {
@@ -13,11 +15,13 @@ function geetest($config = [])
     $geetest = new GeetestLib($config);
     Session::set('gt_user_id', $_SERVER['REQUEST_TIME']);
     Session::set('gt_server_status', $geetest->pre_process(Session::get('gt_user_id')));
+
     return $geetest->get_response_str();
 }
 
 /**
  * 获取地址
+ *
  * @return string
  */
 function geetest_url()
@@ -27,8 +31,10 @@ function geetest_url()
 
 /**
  * 极验验证
- * @param array $post post提交的数据
+ *
+ * @param array $post   post提交的数据
  * @param array $config
+ *
  * @return bool
  */
 function geetest_check($post, $config = [])
